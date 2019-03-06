@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PhotoGalleryViewController.swift
 //  PhotoSearch
 //
 //  Created by Christian McMullin on 3/5/19.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PhotoGalleryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
-
-
 }
-
