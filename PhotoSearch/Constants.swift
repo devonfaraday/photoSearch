@@ -10,6 +10,8 @@ import Foundation
 
 struct Constants {
     
-    static let apiKey: String = "1508443e49213ff84d566777dc211f2a"
+    static let apiKeyValue: String = "1508443e49213ff84d566777dc211f2a"
+    static let apiKey: String = "api_key"
     static let baseUrlString: String = "https://api.flickr.com/services/rest"
+    static let methodKey: String = "method"
 }

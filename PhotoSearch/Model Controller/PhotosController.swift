@@ -10,22 +10,24 @@ import Foundation
 
 class PhotosController {
     
-    private let apiKey: String = "api_key"
+    // Keys for the parameters needed for fetching photo id and title
     private let methodValue: String = "flickr.photos.search"
-    private let methodKey: String = "method"
     private let textKey: String = "text"
     private let pageKey: String = "page"
     private let perPageKey: String = "perPage"
     
+    // Fetch photo id and title
     func fetchPhotos(withText text: String, onPage page: Int, completion: @escaping(Photos?, Error?) -> Void) {
-        guard let url: URL = URL(string: Constants.baseUrlString) else { completion(nil, nil); return }
-        let parameters: URLParameterDictionary = [methodKey: methodValue, apiKey: Constants.apiKey, textKey: text, pageKey: "\(page)", perPageKey: "25"]
+        let parameters: URLParameterDictionary = [Constants.methodKey: methodValue, Constants.apiKey: Constants.apiKeyValue, textKey: text, pageKey: "\(page)", perPageKey: "25", "format": "json", "nojsoncallback": "1"]
         let networkController = NetworkController()
-        networkController.performRequest(withURL: url, urlParameters: parameters) { (data, error) in
+        networkController.performRequest(withUrlParameters: parameters) { (data, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                print(String(data: data, encoding: .utf8)!)
+                if let photosDecoder: PhotosDecoder = try? JSONDecoder().decode(PhotosDecoder.self, from: data) {
+                    let photos = photosDecoder.photos
+                    completion(photos, nil)
+                }
             }
         }
     }
