@@ -26,6 +26,9 @@
 		FD4F81DB222F4E1B00850481 /* PhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81DA222F4E1B00850481 /* PhotoSize.swift */; };
 		FD4F81DD222F4ED800850481 /* PhotoSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81DC222F4ED800850481 /* PhotoSizeController.swift */; };
 		FD4F81DF222F7CD100850481 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81DE222F7CD100850481 /* ImageHandler.swift */; };
+		FD4F81E1222FBA4300850481 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81E0222FBA4300850481 /* SearchViewController.swift */; };
+		FD4F81E4222FBAB000850481 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81E2222FBAB000850481 /* PhotoCollectionViewCell.swift */; };
+		FD4F81E5222FBAB000850481 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4F81E3222FBAB000850481 /* PhotoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		FD4F81DA222F4E1B00850481 /* PhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSize.swift; sourceTree = "<group>"; };
 		FD4F81DC222F4ED800850481 /* PhotoSizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSizeController.swift; sourceTree = "<group>"; };
 		FD4F81DE222F7CD100850481 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
+		FD4F81E0222FBA4300850481 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FD4F81E2222FBAB000850481 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		FD4F81E3222FBAB000850481 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,8 @@
 				FD4F81C5222F443500850481 /* PhotoGalleryCollectionViewController.swift */,
 				FD4F81C1222F43E700850481 /* PhotoGalleryViewController.swift */,
 				FD4F81C3222F441000850481 /* PhotoViewController.swift */,
+				FD4F81E0222FBA4300850481 /* SearchViewController.swift */,
+				FD4F81E2222FBAB000850481 /* PhotoCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,8 +168,9 @@
 		FD4F81CE222F457300850481 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				FD4F81A2222F42D800850481 /* Main.storyboard */,
 				FD4F81AA222F42DA00850481 /* LaunchScreen.storyboard */,
+				FD4F81A2222F42D800850481 /* Main.storyboard */,
+				FD4F81E3222FBAB000850481 /* PhotoCollectionViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -257,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD4F81AC222F42DA00850481 /* LaunchScreen.storyboard in Resources */,
+				FD4F81E5222FBAB000850481 /* PhotoCollectionViewCell.xib in Resources */,
 				FD4F81A9222F42DA00850481 /* Assets.xcassets in Resources */,
 				FD4F81A4222F42D800850481 /* Main.storyboard in Resources */,
 			);
@@ -280,12 +290,14 @@
 				FD4F81CD222F450F00850481 /* Photo.swift in Sources */,
 				FD4F81C8222F44E900850481 /* Photos.swift in Sources */,
 				FD4F81DD222F4ED800850481 /* PhotoSizeController.swift in Sources */,
+				FD4F81E4222FBAB000850481 /* PhotoCollectionViewCell.swift in Sources */,
 				FD4F81D0222F459800850481 /* PhotosController.swift in Sources */,
 				FD4F81D2222F459F00850481 /* PhotoController.swift in Sources */,
 				FD4F81DB222F4E1B00850481 /* PhotoSize.swift in Sources */,
 				FD4F81A7222F42D800850481 /* PhotoSearch.xcdatamodeld in Sources */,
 				FD4F81D9222F482300850481 /* TypeAlias.swift in Sources */,
 				FD4F81D4222F45C100850481 /* Constants.swift in Sources */,
+				FD4F81E1222FBA4300850481 /* SearchViewController.swift in Sources */,
 				FD4F81DF222F7CD100850481 /* ImageHandler.swift in Sources */,
 				FD4F81C4222F441000850481 /* PhotoViewController.swift in Sources */,
 				FD4F81C2222F43E700850481 /* PhotoGalleryViewController.swift in Sources */,

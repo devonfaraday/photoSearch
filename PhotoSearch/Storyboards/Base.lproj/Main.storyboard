@@ -10,19 +10,136 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photo View Controller-->
+        <!--Photo Gallery View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PhotoViewController" customModule="PhotoSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PhotoGalleryViewController" customModule="PhotoSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-1W-7Fh">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <connections>
+                                    <segue destination="OUz-to-adU" kind="embed" identifier="toEmbededCollectionView" id="nlv-jq-XK9"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Y-KR-6xd">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7Dv-VW-Y93"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="sDm-4k-3CV" kind="embed" identifier="toEmbededSearchBar" id="vrF-jn-TAg"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N1Y-KR-6xd" secondAttribute="trailing" id="9JF-Lh-iN8"/>
+                            <constraint firstItem="vkf-1W-7Fh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BRw-zd-2lS"/>
+                            <constraint firstItem="vkf-1W-7Fh" firstAttribute="top" secondItem="N1Y-KR-6xd" secondAttribute="bottom" id="NaE-CG-S1P"/>
+                            <constraint firstItem="N1Y-KR-6xd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="izK-G0-bVC"/>
+                            <constraint firstItem="N1Y-KR-6xd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sBe-lt-cE6"/>
+                            <constraint firstItem="vkf-1W-7Fh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yKc-nG-oag"/>
+                            <constraint firstItem="vkf-1W-7Fh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zmb-dX-j2g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="76"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3CN-Rq-qDz">
+            <objects>
+                <viewController id="sDm-4k-3CV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="76G-ox-rOS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Pyl-MX-Nmb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pyl-MX-Nmb" secondAttribute="trailing" id="F8v-Q5-rx5"/>
+                            <constraint firstAttribute="bottom" secondItem="Pyl-MX-Nmb" secondAttribute="bottom" id="QJY-OM-mJd"/>
+                            <constraint firstItem="Pyl-MX-Nmb" firstAttribute="leading" secondItem="76G-ox-rOS" secondAttribute="leading" id="khv-Yt-xPY"/>
+                            <constraint firstItem="Pyl-MX-Nmb" firstAttribute="top" secondItem="76G-ox-rOS" secondAttribute="top" id="woD-Ur-nwB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8eN-Ug-rN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="-282"/>
+        </scene>
+        <!--Photo Gallery Collection View Controller-->
+        <scene sceneID="GqA-HC-BfB">
+            <objects>
+                <collectionViewController id="OUz-to-adU" customClass="PhotoGalleryCollectionViewController" customModule="PhotoSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="IwK-rG-YEO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RvI-tj-xlF">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="OUz-to-adU" id="G4a-dj-Mxz"/>
+                            <outlet property="delegate" destination="OUz-to-adU" id="Sqy-FZ-RBn"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <segue destination="C3G-fC-nlt" kind="presentation" identifier="toPhotoDetail" id="gvG-q0-1gw"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBZ-y6-g6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="109"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="k0w-TV-J2N">
+            <objects>
+                <viewController id="C3G-fC-nlt" customClass="PhotoViewController" customModule="PhotoSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NoM-Zc-Ae0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLV-ka-fug">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtA-W3-LoK">
+                                <rect key="frame" x="15" y="35" width="45" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Sq2-bE-c8g"/>
+                                    <constraint firstAttribute="width" constant="45" id="sqc-P0-wbX"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pLV-ka-fug" firstAttribute="top" secondItem="Rlu-5b-G6G" secondAttribute="top" id="TC9-fJ-9za"/>
+                            <constraint firstItem="pLV-ka-fug" firstAttribute="leading" secondItem="Rlu-5b-G6G" secondAttribute="leading" id="e39-ti-zbO"/>
+                            <constraint firstItem="Rlu-5b-G6G" firstAttribute="bottom" secondItem="pLV-ka-fug" secondAttribute="bottom" id="gLu-3S-cnu"/>
+                            <constraint firstItem="Rlu-5b-G6G" firstAttribute="trailing" secondItem="pLV-ka-fug" secondAttribute="trailing" id="rsX-tH-yfb"/>
+                            <constraint firstItem="LtA-W3-LoK" firstAttribute="top" secondItem="Rlu-5b-G6G" secondAttribute="top" constant="15" id="wFt-aG-cYI"/>
+                            <constraint firstItem="LtA-W3-LoK" firstAttribute="leading" secondItem="Rlu-5b-G6G" secondAttribute="leading" constant="15" id="z5c-iw-qnU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rlu-5b-G6G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldr-Cm-5ZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="108"/>
         </scene>
     </scenes>
 </document>

@@ -8,27 +8,37 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "photoCell"
 
 class PhotoGalleryCollectionViewController: UICollectionViewController {
+    
+    var photos: [Photos] = []
 
+    // Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerCell()
+    }
+    
+    // Register cell nib
+    func registerCell() {
+        let nib: UINib = UINib(nibName: "PhotoCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
     // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
     
-        // Configure the cell
+        
     
         return cell
     }

@@ -48,7 +48,7 @@ class ImageHandler {
     fileprivate func downloadData(url: URL, completion: @escaping (Data?, Error?) -> Void) {
         DispatchQueue.global().async {
             URLSession(configuration: .ephemeral).dataTask(with: URLRequest(url: url)) { data, response, error in
-                completion(data, response, error)
+                completion(data, error)
                 }.resume()
         }
     }

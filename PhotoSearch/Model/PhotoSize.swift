@@ -14,6 +14,15 @@ struct SizesDecoder: Decodable {
 
 struct PhotoSizes: Decodable {
     let size: [PhotoSize]
+    
+    var thumbnail: PhotoSize? {
+        return size[2]
+    }
+    
+    // the biggest image is always the last in the array.  Since it's not always called original I only grab the last item
+    var original: PhotoSize? {
+        return size.last
+    }
 }
 
 struct PhotoSize: Decodable {
