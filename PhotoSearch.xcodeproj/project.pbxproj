@@ -31,6 +31,8 @@
 		FD4F81E5222FBAB000850481 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4F81E3222FBAB000850481 /* PhotoCollectionViewCell.xib */; };
 		FD4F81E722303DBE00850481 /* String+PhotoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81E622303DBE00850481 /* String+PhotoSearch.swift */; };
 		FD4F81E92230557A00850481 /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F81E82230557A00850481 /* ActivityIndicatorProtocol.swift */; };
+		FD4F81EC223071C800850481 /* PhotoDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4F81EA223071C800850481 /* PhotoDetail.storyboard */; };
+		FD4F81EE223071DF00850481 /* PhotoGalleryCollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4F81ED223071DF00850481 /* PhotoGalleryCollectionView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		FD4F81E3222FBAB000850481 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		FD4F81E622303DBE00850481 /* String+PhotoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PhotoSearch.swift"; sourceTree = "<group>"; };
 		FD4F81E82230557A00850481 /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
+		FD4F81EB223071C800850481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PhotoSearch/Storyboards/Base.lproj/PhotoDetail.storyboard; sourceTree = "<group>"; };
+		FD4F81ED223071DF00850481 /* PhotoGalleryCollectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoGalleryCollectionView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 		FD4F8192222F42D800850481 = {
 			isa = PBXGroup;
 			children = (
+				FD4F81ED223071DF00850481 /* PhotoGalleryCollectionView.storyboard */,
+				FD4F81EA223071C800850481 /* PhotoDetail.storyboard */,
 				FD4F819D222F42D800850481 /* PhotoSearch */,
 				FD4F81B5222F42DA00850481 /* PhotoSearchTests */,
 				FD4F819C222F42D800850481 /* Products */,
@@ -271,6 +277,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4F81EC223071C800850481 /* PhotoDetail.storyboard in Resources */,
+				FD4F81EE223071DF00850481 /* PhotoGalleryCollectionView.storyboard in Resources */,
 				FD4F81AC222F42DA00850481 /* LaunchScreen.storyboard in Resources */,
 				FD4F81E5222FBAB000850481 /* PhotoCollectionViewCell.xib in Resources */,
 				FD4F81A9222F42DA00850481 /* Assets.xcassets in Resources */,
@@ -347,6 +355,14 @@
 				FD4F81AB222F42DA00850481 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FD4F81EA223071C800850481 /* PhotoDetail.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD4F81EB223071C800850481 /* Base */,
+			);
+			name = PhotoDetail.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

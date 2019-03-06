@@ -21,7 +21,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-1W-7Fh">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <connections>
-                                    <segue destination="bmf-Fp-TCG" kind="embed" identifier="toEmbededCollectionView" id="nlv-jq-XK9"/>
+                                    <segue destination="OUz-to-adU" kind="embed" identifier="toEmbededCollectionView" id="nlv-jq-XK9"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Y-KR-6xd">
@@ -90,7 +90,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eN-Ug-rN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-81"/>
+            <point key="canvasLocation" x="830" y="-282"/>
+        </scene>
+        <!--Photo Gallery Collection View Controller-->
+        <scene sceneID="GqA-HC-BfB">
+            <objects>
+                <collectionViewController id="OUz-to-adU" customClass="PhotoGalleryCollectionViewController" customModule="PhotoSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="IwK-rG-YEO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RvI-tj-xlF">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="OUz-to-adU" id="G4a-dj-Mxz"/>
+                            <outlet property="delegate" destination="OUz-to-adU" id="Sqy-FZ-RBn"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBZ-y6-g6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="109"/>
         </scene>
         <!--PhotoDetail-->
         <scene sceneID="Bth-HL-PIk">
@@ -98,15 +123,7 @@
                 <viewControllerPlaceholder storyboardName="PhotoDetail" id="rcR-hT-whz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThL-3L-1we" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="802" y="231"/>
-        </scene>
-        <!--PhotoGalleryCollectionView-->
-        <scene sceneID="nyp-55-PA5">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PhotoGalleryCollectionView" id="bmf-Fp-TCG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LIF-TP-R6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="831" y="109"/>
+            <point key="canvasLocation" x="13.6" y="796.55172413793105"/>
         </scene>
     </scenes>
 </document>

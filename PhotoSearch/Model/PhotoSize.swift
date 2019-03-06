@@ -16,6 +16,7 @@ struct PhotoSizes: Decodable {
     let size: [PhotoSize]
     
     var thumbnail: PhotoSize? {
+        // the 5th index photo is the smallest i can go without starting to get pixelated
             if size.count >= 6 {
                 return size[5]
             } else if size.count >= 5 {
