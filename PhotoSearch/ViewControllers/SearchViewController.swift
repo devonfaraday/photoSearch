@@ -8,23 +8,19 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UISearchBarDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet var searchBar: UISearchBar!
     
+    weak var delegate: SearchVCDelegate?
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let term = searchBar.text else { return }
+        delegate?.searchTermWasUpdated(with: term)
     }
-    */
+}
 
+protocol SearchVCDelegate: class {
+    func searchTermWasUpdated(with term: String)
 }

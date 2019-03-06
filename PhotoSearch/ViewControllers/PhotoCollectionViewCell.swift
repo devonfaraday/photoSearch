@@ -19,6 +19,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.photo = nil
+        self.titleLabel.text = nil
+        self.photoImageView.image = nil
+    }
+    
+    // Fetch the image from either the cached image or download from the source
     func fetchImage() {
         guard let imageUrl = photo?.photoSizes?.thumbnail?.source else { return }
         let imageHandler = ImageHandler()
@@ -32,19 +40,44 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    // Get the imageSizes
+    func fetchPhotoSizesIfNeeded(completion: @escaping() -> Void) {
+        if self.photo?.photoSizes == nil {
+            guard let id = self.photo?.id else { completion(); return }
+            let photoSizeController = PhotoSizeController()
+            DispatchQueue.global().async {
+                photoSizeController.fetchImageSizes(withID: id) { (sizes, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    self.photo?.photoSizes = sizes
+                    completion()
+                }
+            }
+        } else {
+            completion()
+        }
+    }
+    
+    
+    // update the image view
     func updateImageView(_ image: UIImage?) {
         DispatchQueue.main.async {
             self.photoImageView.image = image
         }
     }
     
+    // update the title label
     func updateTitle() {
         guard let title = photo?.title else { return }
         titleLabel.text = title
     }
     
+    // update all the ui
     func updateUI() {
-        fetchImage()
+        fetchPhotoSizesIfNeeded {
+            self.fetchImage()
+        }
         updateTitle()
     }
 }

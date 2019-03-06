@@ -16,12 +16,24 @@ struct PhotoSizes: Decodable {
     let size: [PhotoSize]
     
     var thumbnail: PhotoSize? {
-        return size[2]
+            if size.count >= 6 {
+                return size[5]
+            } else if size.count >= 5 {
+                return size[4]
+            } else if size.count >= 4 {
+                return size[3]
+            } else if size.count >= 3 {
+                return size[2]
+            } else if size.count >= 2 {
+                return size[1]
+            } else {
+                return size.first
+            }
     }
     
     // the biggest image is always the last in the array.  Since it's not always called original I only grab the last item
     var original: PhotoSize? {
-        return size.last
+            return size.last
     }
 }
 

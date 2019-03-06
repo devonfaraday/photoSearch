@@ -14,19 +14,19 @@ class PhotoSizeController {
     private let photoIdKey: String = "photo_id"
     
     // fetch the sizes for an image with it's id
-    func fetchImageSizes(withID photoId: String, completion: @escaping([PhotoSize], Error?) -> Void) {
-        let parameters: URLParameterDictionary = [Constants.methodKey: getSizesKey, Constants.apiKey: Constants.apiKeyValue, photoIdKey: photoId]
+    func fetchImageSizes(withID photoId: String, completion: @escaping(PhotoSizes?, Error?) -> Void) {
+        let parameters: URLParameterDictionary = [.methodKey: getSizesKey, .apiKey: Constants.apiKeyValue, photoIdKey: photoId, .formatKey: .formatValue, .noJsonCallbackKey: .noJsonCallbackValue]
         let networkController = NetworkController()
         networkController.performRequest(withUrlParameters: parameters) { (data, error) in
             if let data = data {
                 if let sizesDecoder: SizesDecoder = try? JSONDecoder().decode(SizesDecoder.self, from: data) {
                     let sizes: PhotoSizes = sizesDecoder.sizes
-                    completion(sizes.size, nil)
+                    completion(sizes, nil)
                 } else {
-                    completion([], nil)
+                    completion(nil, nil)
                 }
             } else {
-                completion([], error)
+                completion(nil, error)
             }
             
         }

@@ -11,7 +11,7 @@ import Foundation
 class Photo: Decodable {
     let id: String
     let title: String
-    var photoSizes: PhotoSizes?
+    var photoSizes: PhotoSizes? = nil
     
     init(id: String, title: String) {
         self.id = id

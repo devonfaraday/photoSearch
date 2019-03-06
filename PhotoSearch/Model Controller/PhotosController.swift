@@ -14,11 +14,11 @@ class PhotosController {
     private let methodValue: String = "flickr.photos.search"
     private let textKey: String = "text"
     private let pageKey: String = "page"
-    private let perPageKey: String = "perPage"
+    private let perPageKey: String = "per_page"
     
     // Fetch photo id and title
     func fetchPhotos(withText text: String, onPage page: Int, completion: @escaping(Photos?, Error?) -> Void) {
-        let parameters: URLParameterDictionary = [Constants.methodKey: methodValue, Constants.apiKey: Constants.apiKeyValue, textKey: text, pageKey: "\(page)", perPageKey: "25", "format": "json", "nojsoncallback": "1"]
+        let parameters: URLParameterDictionary = [.methodKey: methodValue, .apiKey: Constants.apiKeyValue, textKey: text, perPageKey: "25", pageKey: "\(page)", .formatKey: .formatValue, .noJsonCallbackKey: .noJsonCallbackValue]
         let networkController = NetworkController()
         networkController.performRequest(withUrlParameters: parameters) { (data, error) in
             if let error = error {

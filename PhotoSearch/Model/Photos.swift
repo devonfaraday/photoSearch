@@ -18,6 +18,8 @@ class Photos: Decodable {
     let perPage: Int = 25
     var photo: [Photo] = []
     
+    init() {}
+    
     enum CodingKeys: String, CodingKey {
         case photos
         case page
